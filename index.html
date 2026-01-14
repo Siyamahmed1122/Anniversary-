@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Anniversary Sayla 🖤</title>
+    <title>Happy Anniversary Sayla</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -17,21 +16,20 @@
             background-color: #000;
             color: white;
             font-family: 'Poppins', Arial, 'SolaimanLipi', sans-serif;
-            }
+}
+
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
         .romantic-text { font-family: 'Dancing Script', cursive; }
         
-        /* Background Gradient like the video */
         .gradient-bg {
             background: radial-gradient(circle at top right, #2d1b4e, #000000);
             min-height: 100vh;
         }
 
+        /* Initial hidden state for scroll reveals */
         .reveal-card { opacity: 0; transform: translateY(50px); }
         
-        /* Glassmorphism for Countdown */
         .glass-box {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
@@ -39,170 +37,185 @@
             border-radius: 24px;
         }
 
-        /* Glowing Button */
         .heart-btn {
             background: linear-gradient(45deg, #ff0055, #ff5e00);
             box-shadow: 0 0 30px rgba(255, 0, 85, 0.4);
-            transition: 0.3s;
+            transition: 0.4s;
         }
         .heart-btn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(255, 0, 85, 0.6); }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #ff0055; border-radius: 10px; }
+        /* Loader Styles */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="gradient-bg">
 
-    <section id="intro" class="h-screen flex flex-col items-center justify-center p-6 text-center">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 border-4 border-pink-500/30 rounded-full flex items-center justify-center animate-spin-slow">
-                <i class="fas fa-heart text-6xl text-pink-500 animate-pulse"></i>
-            </div>
+    <div id="loader">
+        <div class="relative mb-6">
+            <div class="w-24 h-24 border-4 border-pink-500/20 border-t-pink-500 rounded-full animate-spin"></div>
+            <i class="fas fa-heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-pink-500 animate-pulse"></i>
         </div>
-        <h1 class="romantic-text text-5xl text-pink-500 mb-4">Loading our love story...</h1>
-        <p class="text-gray-400 italic">Wait for the surprise madam jii... 😉</p>
-    </section>
+        <h2 class="romantic-text text-3xl text-pink-500">Wait for the surprise...</h2>
+    </div>
 
-    <section class="min-h-screen flex flex-col items-center justify-center p-6 bg-black/40">
-        <h2 class="text-2xl font-bold mb-12 reveal-card tracking-widest uppercase text-pink-400">Our Anniversary is Coming 🥰</h2>
+    <main id="main-content" class="opacity-0">
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-3xl reveal-card">
-            <div class="glass-box p-8 text-center">
-                <span id="days" class="text-5xl font-bold text-white">00</span>
-                <p class="text-xs text-pink-500 font-bold uppercase mt-3">Days</p>
+        <section class="h-screen flex flex-col items-center justify-center p-6 text-center">
+            <h1 class="text-pink-400 font-bold tracking-widest uppercase mb-8 reveal-card">We are Together Since Happy Anniversary Sinthiya✨</h1>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl reveal-card">
+                <div class="glass-box p-6">
+                    <span id="days" class="text-4xl md:text-5xl font-bold">00</span>
+                    <p class="text-xs text-pink-500 mt-2">Days</p>
+                </div>
+                <div class="glass-box p-6">
+                    <span id="hours" class="text-4xl md:text-5xl font-bold">00</span>
+                    <p class="text-xs text-pink-500 mt-2">Hours</p>
+                </div>
+                <div class="glass-box p-6">
+                    <span id="mins" class="text-4xl md:text-5xl font-bold">00</span>
+                    <p class="text-xs text-pink-500 mt-2">Minutes</p>
+                </div>
+                <div class="glass-box p-6">
+                    <span id="secs" class="text-4xl md:text-5xl font-bold">00</span>
+                    <p class="text-xs text-pink-500 mt-2">Seconds</p>
+                </div>
             </div>
-            <div class="glass-box p-8 text-center">
-                <span id="hours" class="text-5xl font-bold text-white">00</span>
-                <p class="text-xs text-pink-500 font-bold uppercase mt-3">Hours</p>
+            
+            <div class="mt-20 reveal-card">
+                <p class="text-gray-400 animate-bounce">Scroll down to see more ↓👇</p>
             </div>
-            <div class="glass-box p-8 text-center">
-                <span id="mins" class="text-5xl font-bold text-white">00</span>
-                <p class="text-xs text-pink-500 font-bold uppercase mt-3">Minutes</p>
-            </div>
-            <div class="glass-box p-8 text-center">
-                <span id="secs" class="text-5xl font-bold text-white">00</span>
-                <p class="text-xs text-pink-500 font-bold uppercase mt-3">Seconds</p>
-            </div>
-        </div>
-        <p class="mt-12 text-gray-500 italic reveal-card"> Happy Anniversary Sinthiya..</p>
-    </section>
+        </section>
 
-    <section class="h-screen flex flex-col items-center justify-center p-6 text-center">
-        <div class="reveal-card">
-            <h3 class="text-3xl font-bold mb-8">Ready for the Gift? 🎁</h3>
-            <button onclick="revealLoveStory()" class="heart-btn px-12 py-5 rounded-full font-bold text-xl uppercase tracking-widest text-white">
-                Tap here to reveal
-            </button>
-        </div>
-    </section>
-
-    <section id="gallery" class="hidden min-h-screen p-6 space-y-24 pb-32">
-        <h2 class="romantic-text text-6xl text-center text-pink-500 mt-10">Memories Since 2022</h2>
-        
-        <div class="flex flex-col items-center reveal-card">
-            <div class="w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden border-8 border-white/5 shadow-2xl">
-                <img src="https://i.postimg.cc/T2HZSW9d/20220614-145109.jpg" class="w-full h-full object-cover">
+        <section class="h-screen flex flex-col items-center justify-center p-6 text-center">
+            <div class="reveal-card">
+                <h3 class="romantic-text text-5xl mb-10">Ready for the Gift? 🎁</h3>
+                <button onclick="revealGallery()" class="heart-btn px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest">
+                    Tap to Reveal
+                </button>
             </div>
-            <p class="mt-6 text-pink-400 font-bold text-xl romantic-text">The day it all started ✨</p>
-        </div>
+        </section>
 
-        <div class="flex flex-col items-center reveal-card">
-            <div class="w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden border-8 border-white/5 shadow-2xl">
-                <img src="https://i.postimg.cc/y8Ns9zvW/20220614-150355-01.jpg" class="w-full h-full object-cover">
-            </div>
-            <p class="mt-6 text-pink-400 font-bold text-xl romantic-text">My Favorite Person 🌸</p>
-        </div>
+        <section id="gallery" class="hidden min-h-screen p-6 pb-20">
+            <h2 class="romantic-text text-6xl text-center text-pink-500 mb-16">Memories Since 2022</h2>
+            
+            <div class="space-y-20 max-w-lg mx-auto">
+                <div class="reveal-card">
+                    <img src="https://i.postimg.cc/T2HZSW9d/20220614-145109.jpg" class="rounded-3xl border-4 border-white/10 shadow-2xl">
+                    <p class="mt-4 text-center romantic-text text-2xl text-pink-400">The day it all started✨</p>
+                </div>
 
-        <div class="max-w-2xl mx-auto bg-pink-500/5 p-12 rounded-[3rem] border border-pink-500/20 reveal-card shadow-inner">
+                <div class="reveal-card">
+                    <img src="https://i.postimg.cc/y8Ns9zvW/20220614-150355-01.jpg" class="rounded-3xl border-4 border-white/10 shadow-2xl">
+                    <p class="mt-4 text-center romantic-text text-2xl text-pink-400">My Favorite Person🌸</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-pink-500/5 p-12 rounded-[3rem] border border-pink-500/20 reveal-card shadow-inner">
             <i class="fas fa-quote-left text-pink-500/20 text-7xl mb-4"></i>
             <h4 class="romantic-text text-5xl text-pink-400 mb-8">Dear Love A Note For You,</h4>
             <p class="text-gray-300 leading-relaxed text-lg italic">
-                ১৮ই মার্চ, ২০২২ থেকে আজ পর্যন্ত তোমার সাথে কাটানো প্রতিটা দিন আমার জীবনের শ্রেষ্ঠ সম্পদ। 
+                        ১৮ই মার্চ, ২০২২ থেকে আজ পর্যন্ত তোমার সাথে কাটানো প্রতিটা দিন আমার জীবনের শ্রেষ্ঠ সম্পদ। 
                 উপরে কাউন্টারে দেখতেই পাচ্ছ আমরা কতগুলো মুহূর্ত পার করেছি, আর আমি চাই এই সংখ্যাটা যেন সারাজীবন এভাবেই বাড়তে থাকে।
-                
-            </p>
-            <div class="mt-12 text-right">
-                <p class="romantic-text text-4xl text-pink-500">With all my heart,</p>
-                <p class="font-bold text-gray-400 mt-2 uppercase tracking-widest">Your Soulmate</p>
+                    </p>
+                    <div class="mt-8 text-right">
+                        <p class="romantic-text text-3xl text-pink-500">With Love,</p>
+                        <p class="text-xs uppercase tracking-widest text-gray-500">Your Soulmate</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // --- ১. লাইভ টাইম কাউন্ট লজিক (Since 2022-03-18) ---
-        const startDate = new Date(2022, 2, 18, 0, 0, 0).getTime(); // ২ মানে মার্চ (০=জানুয়ারি)
-
-        function updateTogetherTime() {
-            const now = new Date().getTime();
-            const diff = now - startDate; // বর্তমান সময় থেকে আগের সময় বিয়োগ
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = String(d).padStart(2, '0');
-            document.getElementById('hours').innerText = String(h).padStart(2, '0');
-            document.getElementById('mins').innerText = String(m).padStart(2, '0');
-            document.getElementById('secs').innerText = String(s).padStart(2, '0');
-        }
-        setInterval(updateTogetherTime, 1000);
-        updateTogetherTime();
-
-        // --- ২. GSAP রিভিয়াল এনিমেশন (ভিডিওর মতো) ---
-        gsap.utils.toArray(".reveal-card").forEach(card => {
-            gsap.to(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 90%",
-                    toggleActions: "play none none reverse"
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1.5,
-                ease: "power4.out"
-            });
+        // ১. লোডিং এনিমেশন (৩ সেকেন্ড পর মেইন কন্টেন্ট দেখাবে)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                gsap.to("#loader", { opacity: 0, duration: 1, onComplete: () => {
+                    document.getElementById('loader').style.display = 'none';
+                    gsap.to("#main-content", { opacity: 1, duration: 1 });
+                }});
+            }, 2500); 
         });
 
-        // --- ৩. সারপ্রাইজ রিভিয়াল ফাংশন ---
-        function revealLoveStory() {
+        // ২. টাইম কাউন্ট (Since March 18, 2022)
+        const startDate = new Date(2022, 2, 18).getTime(); 
+        function updateCounter() {
+            const now = new Date().getTime();
+            const diff = now - startDate;
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            document.getElementById('mins').innerText = Math.floor((diff / 1000 / 60) % 60);
+            document.getElementById('secs').innerText = Math.floor((diff / 1000) % 60);
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // ৩. স্ক্রল এনিমেশন
+        function initScrollAnimations() {
+            gsap.utils.toArray(".reveal-card").forEach(card => {
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power3.out"
+                });
+            });
+        }
+        initScrollAnimations();
+
+        // ৪. বাটন ক্লিক ফাংশন
+        function revealGallery() {
             const gallery = document.getElementById('gallery');
             gallery.classList.remove('hidden');
-            
-            // স্মুথ স্ক্রল গ্যালারিতে নিয়ে যাওয়ার জন্য
             gallery.scrollIntoView({ behavior: 'smooth' });
             
-            // হার্ট শাওয়ার শুরু (ভিডিওর এনিমেশন)
-            setInterval(createFloatingHeart, 300);
+            // রিফ্রেশ স্ক্রল ট্রিগার যাতে নতুন আসা কার্ডগুলো এনিমেট হয়
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+                startHearts();
+            }, 500);
         }
 
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            heart.innerHTML = '❤️';
-            heart.style.position = 'fixed';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '-20px';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-            heart.style.color = '#ff0055';
-            heart.style.zIndex = '1000';
-            heart.style.pointerEvents = 'none';
-            heart.style.transition = '4s linear';
-            document.body.appendChild(heart);
+        // ৫. হার্ট এনিমেশন (Rain effect)
+        function startHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'fixed text-pink-500 pointer-events-none z-50';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-20px';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                document.body.appendChild(heart);
 
-            setTimeout(() => {
-                heart.style.transform = `translateY(110vh) rotate(${Math.random() * 360}deg)`;
-                heart.style.opacity = '0';
-            }, 100);
-
-            setTimeout(() => heart.remove(), 4000);
+                gsap.to(heart, {
+                    y: window.innerHeight + 50,
+                    x: (Math.random() - 0.5) * 200,
+                    rotation: Math.random() * 360,
+                    duration: Math.random() * 3 + 2,
+                    ease: "none",
+                    onComplete: () => heart.remove()
+                });
+            }, 300);
         }
     </script>
 </body>
-
-</html>
-
+    </html>
 
 
